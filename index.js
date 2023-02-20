@@ -99,7 +99,6 @@ function finalScore(callbackFunction, numberOfInnings){
   let awayScore = 0;
   let i = 0
 while (i < numberOfInnings) {
-//  for(let i = 0; i < numberOfInnings, i++;) 
     homeScore = homeScore + callbackFunction();
     awayScore = awayScore + callbackFunction();
     i++
@@ -107,8 +106,6 @@ while (i < numberOfInnings) {
     return {
       Home: homeScore,
       Away: awayScore
-//    Home: callbackFunction(),
-//   Away: callbackFunction()
     }
 }
 
