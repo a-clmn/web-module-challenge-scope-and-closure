@@ -176,21 +176,21 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(CB1, CB2, numberOfInnings) {
-  let i = 0
-  let homeScore = getInningScore(inning)
-  let awayScore = getInningScore(inning)
-  while (i < numberOfInnings) {
-    if (homeScore > awayScore || homeScore < awayScore) {
-      return [`Final Score: ${awayScore} - ${homeScore}`]
-    }
-    else if (homeScore === awayScore) {
-      return [`This game will require extra innings: ${awayScore} - ${homeScore}`]
-    }
-  }
-}
+function scoreboard() {
+//   let i = 0
+//   let homeScore = getInningScore(inning)
+//   let awayScore = getInningScore(inning)
+//   while (i < numberOfInnings) {
+//     if (homeScore > awayScore || homeScore < awayScore) {
+//       return [`Final Score: ${awayScore} - ${homeScore}`]
+//     }
+//     else if (homeScore === awayScore) {
+//       return [`This game will require extra innings: ${awayScore} - ${homeScore}`]
+//     }
+//   }
+ }
 
-console.log("Task 5 aka Stretch", scoreboard(getInningScore, inning, 9))
+// console.log("Task 5 aka Stretch", scoreboard(getInningScore, inning, 9))
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
