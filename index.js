@@ -31,10 +31,18 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   
   1. What is the difference between counter1 and counter2?
   
+  A: Counter1 turns the counterMaker function into a variable while counter2 simply adds onto the previously
+  declared variable outisde of the scope of the function.
+  
   2. Which of the two uses a closure? How can you tell?
+
+  A: Counter2 uses a closure as it refers to a variable outside of the fucntion's scope.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     
+     A: The counter1 code would be preferable if we needed to reuse the declared variable in different parts of the code while
+     the counter2 code would be better if we just needed to count inside of the scope of the function.
 */
 
 // counter1 code
@@ -64,10 +72,12 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(randomNum){
+    
+return Math.floor(Math.random() * Math.floor(3));
 }
 
+console.log("Task 2", inning())
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -83,9 +93,27 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(callbackFunction, numberOfInnings){
+  
+  let homeScore = 0;
+  let awayScore = 0;
+  let i = 0
+while (i < numberOfInnings) {
+//  for(let i = 0; i < numberOfInnings, i++;) 
+    homeScore = homeScore + callbackFunction();
+    awayScore = awayScore + callbackFunction();
+    i++
 }
+    return {
+      Home: homeScore,
+      Away: awayScore
+//    Home: callbackFunction(),
+//   Away: callbackFunction()
+    }
+}
+
+
+console.log("Task 3", finalScore(inning, 9))
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -101,11 +129,15 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+ function getInningScore(callbackFunction) {
+  
+    return {
+      Home: callbackFunction(),
+      Away: callbackFunction()
+    }
 }
 
+console.log("Task 4", getInningScore(inning))
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -147,11 +179,21 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(CB1, CB2, numberOfInnings) {
+  let i = 0
+  let homeScore = getInningScore(inning)
+  let awayScore = getInningScore(inning)
+  while (i < numberOfInnings) {
+    if (homeScore > awayScore || homeScore < awayScore) {
+      return [`Final Score: ${awayScore} - ${homeScore}`]
+    }
+    else if (homeScore === awayScore) {
+      return [`This game will require extra innings: ${awayScore} - ${homeScore}`]
+    }
+  }
 }
 
-
+console.log("Task 5 aka Stretch", scoreboard(getInningScore, inning, 9))
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
